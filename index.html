@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="Restaurante do Tio LTDA - Matinhos/PR - Comida caseira e atendimento acolhedor.">
+<title>Restaurante do Tio LTDA</title>
+<style>
+  :root{
+    --bg:#fbf8f3;
+    --card:#fff8ef;
+    --accent:#8b5e3c; /* marrom */
+    --accent-dark:#62422a;
+    --muted:#6b5b4a;
+    --text:#2b2b2b;
+    --gold:#c99a50;
+    --shadow: 0 6px 20px rgba(42,36,32,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); line-height:1.5}
+  a{color:var(--accent);text-decoration:none}
+  header{position:sticky;top:0;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04);z-index:80}
+  .container{max-width:1100px;margin:0 auto;padding:18px}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{
+    width:56px;height:56px;border-radius:10px;
+    background:linear-gradient(135deg,var(--card),#fff);
+    display:flex;align-items:center;justify-content:center;border:2px solid rgba(0,0,0,0.02);box-shadow:var(--shadow)
+  }
+  .logo img{width:44px;height:44px;object-fit:cover;border-radius:8px}
+  .site-title{font-size:18px;color:var(--accent-dark);font-weight:700}
+  nav{display:flex;gap:18px;align-items:center}
+  nav a{font-weight:600;color:var(--muted);padding:8px 10px;border-radius:8px}
+  nav a:hover{background:rgba(139,94,60,0.06);color:var(--accent-dark)}
+  .cta{display:flex;gap:10px;align-items:center}
+  .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;box-shadow:0 6px 18px rgba(139,94,60,0.12)}
+  .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(139,94,60,0.12);font-weight:700}
+  /* hero */
+  .hero{display:flex;align-items:center;gap:28px;padding:48px 0}
+  .hero-left{flex:1}
+  .eyebrow{display:inline-block;background:linear-gradient(90deg,var(--gold),rgba(201,154,80,0.6));padding:6px 10px;border-radius:999px;color:#fff;font-size:13px;font-weight:700;margin-bottom:14px}
+  h1{font-size:36px;color:var(--accent-dark);margin-bottom:12px;line-height:1.05}
+  p.lead{color:var(--muted);max-width:720px}
+  .hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+  /* cardápio preview */
+  .menu-card{width:360px;background:var(--card);padding:18px;border-radius:14px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
+  .menu-card h4{color:var(--accent-dark);margin-bottom:8px}
+  .dish{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed rgba(0,0,0,0.03);color:var(--muted)}
+  .dish:last-child{border-bottom:none}
+  /* sections */
+  section{padding:36px 0}
+  .section-card{background:#fff;padding:20px;border-radius:12px;box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .small{font-size:14px;color:var(--muted)}
+  /* privacidade */
+  #privacidade .section-card{background:linear-gradient(180deg,#fff,#fff8f0)}
+  /* contato fixed whatsapp */
+  .whatsapp-fab{position:fixed;right:18px;bottom:18px;background:linear-gradient(180deg,var(--gold),#b77f3a);color:#fff;padding:14px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(103,64,32,0.18);font-weight:800;text-decoration:none;z-index:1000;display:flex;align-items:center;gap:10px}
+  .whatsapp-fab small{font-size:12px;opacity:0.95}
+  /* footer */
+  footer{background:#f5efe6;padding:26px 0;border-top:1px solid rgba(0,0,0,0.03);margin-top:30px}
+  footer .muted{color:var(--muted);font-size:13px}
+  /* cookies */
+  #cookie-banner{position:fixed;left:12px;right:12px;bottom:16px;background:#fff;padding:12px 14px;border-radius:10px;display:flex;justify-content:space-between;gap:12px;align-items:center;box-shadow:0 10px 30px rgba(17,12,8,0.12);z-index:2000}
+  #cookie-banner p{font-size:14px;color:var(--muted);max-width:760px}
+  #cookie-banner .accept{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;font-weight:700;border:none}
+  /* responsive */
+  @media(max-width:960px){.grid-2{grid-template-columns:1fr}.hero{flex-direction:column}.menu-card{width:100%}}
+  @media(max-width:600px){
+    header .container{padding:12px}
+    h1{font-size:26px}
+    .logo{width:48px;height:48px}
+    nav{display:none}
+    .hero{padding:28px 0}
+  }
+  /* subtle entrance */
+  .reveal{opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.2,.9,.3,1)}
+  .reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- small decorative icon; replace with your logo if desired -->
+          <img src="https://images.unsplash.com/photo-1542452255191-c4a3d9b3c66b?auto=format&fit=crop&w=80&q=60" alt="logo">
+        </div>
+        <div>
+          <div class="site-title">Restaurante do Tio LTDA</div>
+          <div class="small" style="margin-top:4px">Rua Uniflor, 1456 — Caiobá, Matinhos - PR</div>
+        </div>
+      </div>
+
+      <nav aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#privacidade">Privacidade</a>
+        <a href="#contato" class="btn secondary" style="padding:8px 12px">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="inicio">
+    <section class="hero reveal" id="hero-section">
+      <div class="hero-left">
+        <div class="eyebrow">Comida Caseira & Hospitalidade</div>
+        <h1>Sabores de casa com alma de litoral</h1>
+        <p class="lead">Desde 13/08/2009 o Restaurante do Tio LTDA serve receitas afetivas e pratos regionais em um ambiente acolhedor na Praia de Caiobá. Pratos feitos com ingredientes selecionados, atendimento caloroso e preço justo — a combinação que traz clientes de volta.</p>
+        <div class="hero-actions">
+          <a href="#cardapio" class="btn">Ver Cardápio</a>
+          <a href="#contato" class="btn secondary">Reservar Mesa</a>
+        </div>
+      </div>
+
+      <aside class="menu-card" aria-hidden="true">
+        <h4>Sugestões do dia</h4>
+        <div class="dish"><span>Moqueca de peixe</span><strong>R$ 48,00</strong></div>
+        <div class="dish"><span>Espetada mista</span><strong>R$ 42,00</strong></div>
+        <div class="dish"><span>Arroz de camarão</span><strong>R$ 55,00</strong></div>
+        <div style="margin-top:12px;text-align:center"><a href="#cardapio" style="font-weight:700;color:var(--accent-dark)">Ver o cardápio completo →</a></div>
+      </aside>
+    </section>
+
+    <section id="cardapio" class="reveal" style="margin-top:10px">
+      <div class="section-card">
+        <h3 style="color:var(--accent-dark);margin-bottom:10px">Cardápio</h3>
+        <p class="small">Aqui você pode inserir PDFs, imagens do cardápio ou uma lista dinâmica de pratos. Caso queira, eu já gero um layout responsivo para listar entradas, pratos principais e sobremesas.</p>
+      </div>
+    </section>
+
+    <section id="quem-somos" class="reveal" style="margin-top:18px">
+      <div class="section-card">
+        <h3 style="color:var(--accent-dark)">Quem Somos</h3>
+        <p class="small" style="margin-top:10px">
+          Fundado em 13 de agosto de 2009, o Restaurante do Tio LTDA é uma microempresa localizada em Matinhos (Caiobá) que oferece comida caseira com inspiração regional. Prioritamos ingredientes frescos, preparo cuidadoso e atendimento acolhedor, atendendo moradores locais e turistas que buscam uma refeição reconfortante à beira-mar.
+        </p>
+      </div>
+    </section>
+
+    <section id="privacidade" class="reveal" style="margin-top:18px">
+      <div class="section-card">
+        <h3 style="color:var(--accent-dark)">Política de Privacidade</h3>
+        <p class="small" style="margin-top:10px"><strong>Última atualização:</strong> 21/10/2025</p>
+        <p class="small" style="margin-top:8px">
+          Coletamos apenas dados necessários para contato e reservas (nome, e-mail, telefone) e dados técnicos para análises (IP, navegador). Não armazenamos dados de cartão no site. Utilizamos cookies para melhorar a experiência; ao aceitar você autoriza a ativação de ferramentas de análise. Para solicitar acesso, correção ou exclusão de dados, contate: <a href="mailto:re****@****.com">re****@****.com</a>.
+        </p>
+      </div>
+    </section>
+
+    <section id="contato" class="reveal" style="margin-top:18px">
+      <div class="grid-2">
+        <div class="section-card">
+          <h3 style="color:var(--accent-dark)">Contato & Reservas</h3>
+          <p class="small" style="margin-top:8px">
+            Rua Uniflor, 1456 — Bairro Caiobá, Matinhos - PR<br>
+            E-mail: <a href="mailto:re****@****.com">re****@****.com</a><br>
+            Telefone: (41) 345****-****<br>
+            Horário: consulte nossa página para horários atualizados e dias especiais.
+          </p>
+          <p style="margin-top:12px">
+            <a href="#contato" class="btn" style="display:inline-block">Enviar Mensagem</a>
+            <a href="#contato" class="btn secondary" style="display:inline-block;margin-left:8px">Reservar Mesa</a>
+          </p>
+        </div>
+
+        <div class="section-card">
+          <h3 style="color:var(--accent-dark)">Dados Cadastrais</h3>
+          <p class="small" style="margin-top:8px">
+            Razão Social: Restaurante do Tio LTDA<br>
+            CNPJ: 11.080.430/0001-87<br>
+            Inscrição Estadual PR: 90497202-94<br>
+            Abertura: 13/08/2009 • Porte: Microempresa • Capital: R$ 15.000,00<br>
+            Optante pelo Simples Nacional desde a abertura.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="whatsapp-fab" href="https://wa.me/5541999999999" id="whatsapp-link" target="_blank" rel="noopener" aria-label="Fazer pedido pelo WhatsApp">
+    <div style="display:flex;flex-direction:column;line-height:1">
+      <strong>Fazer pedido</strong>
+      <small>WhatsApp</small>
+    </div>
+  </a>
+
+  <footer>
+    <div class="container" style="display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div style="font-weight:700;color:var(--accent-dark)">Restaurante do Tio LTDA</div>
+      <div class="muted">© 2025 Restaurante do Tio LTDA • CNPJ: 11.080.430/0001-87 • Matinhos - PR</div>
+      <div class="small" style="margin-top:6px">Informações obtidas via registro público (CNPJ Biz). Use conforme legislação aplicável.</div>
+    </div>
+  </footer>
+
+  <!-- Cookie banner -->
+  <div id="cookie-banner" role="dialog" aria-live="polite">
+    <p>Usamos cookies para melhorar sua experiência e analisar tráfego. Ao aceitar, ativamos recursos que ajudam a melhorar nosso atendimento.</p>
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="accept" id="accept-cookies">Aceitar</button>
+      <button style="background:transparent;border:none;color:var(--muted);font-weight:700;cursor:pointer" id="cookie-settings">Configurar</button>
+    </div>
+  </div>
+
+<script>
+  // entrance reveal
+  function revealAll(){document.querySelectorAll('.reveal').forEach(el=>{
+    const rect=el.getBoundingClientRect();
+    if(rect.top < (window.innerHeight - 80)){el.classList.add('visible')}
+  })} window.addEventListener('load',()=>{revealAll();setTimeout(revealAll,600)}); window.addEventListener('scroll',revealAll);
+
+  // cookie consent
+  const cookieBanner = document.getElementById('cookie-banner');
+  const acceptCookies = document.getElementById('accept-cookies');
+  const cookieSettings = document.getElementById('cookie-settings');
+  if(localStorage.getItem('rdt_cookies') === 'accepted'){cookieBanner.style.display='none'}
+  acceptCookies.addEventListener('click',()=>{
+    localStorage.setItem('rdt_cookies','accepted');
+    cookieBanner.style.display='none';
+    // place to initialize analytics AFTER consent
+    // initAnalytics(); // uncomment and implement with your GA4 id
+  });
+  cookieSettings.addEventListener('click',()=>{
+    alert('Configurações de cookies: no momento você pode aceitar ou recusar. Substitua este comportamento por um painel de consentimento se necessário.');
+  });
+
+  // smooth anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const href = this.getAttribute('href');
+      if(href.length>1){
+        e.preventDefault();
+        const el = document.querySelector(href);
+        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+
+  // accessibility: hide whatsapp fab on small screens if needed (optional)
+  // placeholder note: replace phone number in wa.me link with real number in international format (e.g. 5511999999999)
+</script>
+</body>
+</html>
