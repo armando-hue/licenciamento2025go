@@ -9,29 +9,16 @@
     :root{--accent:#d35400;--dark:#222;--muted:#666;--card:#fff;--bg:#f6f6f6;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:var(--dark);line-height:1.5}
-    header{background:linear-gradient(90deg,#fff 0%, #fff 60%, rgba(211,84,0,0.06) 100%);border-bottom:1px solid #eee}
+    header{background:#fff;border-bottom:1px solid #eee}
     .container{max-width:1000px;margin:0 auto;padding:20px}
     nav{display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:56px;height:56px;border-radius:12px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
     .navlinks a{margin-left:16px;color:var(--dark);text-decoration:none;font-weight:600}
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;padding:36px 0;align-items:center}
-    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(15,15,15,0.06)}
-    h1{margin:0;font-size:26px}
-    p.lead{color:var(--muted);margin-top:8px}
-    .contact-buttons{display:flex;flex-direction:column;gap:12px}
-    .btn{display:inline-block;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:600}
-    .btn-primary{background:var(--accent);color:#fff}
-    .btn-ghost{border:1px solid #ddd;color:var(--dark);background:transparent}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
-    .menu-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-    footer{padding:28px 0;margin-top:28px;border-top:1px solid #eee}
+    .card{background:var(--card);padding:20px;border-radius:12px;box-shadow:0 6px 18px rgba(15,15,15,0.06);margin-bottom:20px}
+    h1,h2,h3{margin-top:0}
     .small{font-size:13px;color:var(--muted)}
     pre{white-space:pre-wrap;font-size:14px}
-    .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:16px}
-    .review-card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,0.05)}
-    .review-author{font-weight:600;margin-top:8px;color:var(--accent)}
-    @media(max-width:880px){.hero{grid-template-columns:1fr;}.menu-list{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -58,144 +45,69 @@
   </header>
 
   <main class="container">
-    <section id="inicio" class="hero">
-      <div>
-        <div class="card">
-          <h1>Bem-vindo ao Restaurante do Tio</h1>
-          <p class="lead">Tradição e sabor em Matinhos desde 2009. Pratos caseiros, ingredientes frescos e atendimento acolhedor.</p>
-          <div style="margin-top:16px">
-            <strong>Horário</strong>
-            <div class="small">Seg — Sex: 11:00 — 14:30 | Sáb: 11:00 — 15:00 | Dom: Fechado</div>
-          </div>
-          <div style="margin-top:16px" class="about-grid">
-            <div>
-              <strong>CNPJ</strong>
-              <div class="small">11.080.430/0001-87</div>
-            </div>
-            <div>
-              <strong>Inscrição Estadual (PR)</strong>
-              <div class="small">90497202-94</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <aside>
-        <div class="card">
-          <h3>Contato rápido</h3>
-          <div style="margin-top:8px" class="contact-buttons">
-            <a class="btn btn-primary" href="tel:+554134567890">Ligar: (41) 3456-7890</a>
-            <a class="btn btn-ghost" href="mailto:contato@restaurantedotio.com.br">Email: contato@restaurantedotio.com.br</a>
-            <a class="btn btn-ghost" href="https://wa.me/554134567890" target="_blank">WhatsApp</a>
-          </div>
-          <div style="margin-top:12px" class="small">* Telefone e e-mail de exemplo. Substitua pelos seus dados reais antes da publicação.</div>
-        </div>
-
-        <div style="margin-top:16px" class="card">
-          <h4>Endereço</h4>
-          <div class="small">Rua Uniflor, 1456 — Caioba, Matinhos — PR, CEP 83260-000</div>
-          <div style="margin-top:8px"><a href="https://www.google.com/maps/search/?api=1&query=Rua+Uniflor+1456+Matinhos+PR" target="_blank">Abrir no Google Maps</a></div>
-        </div>
-      </aside>
+    <section id="inicio" class="card">
+      <h1>Bem-vindo ao Restaurante do Tio</h1>
+      <p>Tradição e sabor em Matinhos desde 2009. Pratos caseiros, ingredientes frescos e atendimento acolhedor.</p>
     </section>
 
-    <section id="sobre" style="margin-top:22px">
-      <div class="card">
-        <h2>Quem Somos</h2>
-        <p class="small">O Restaurante do Tio é mais do que um local para refeições — é um espaço de tradição, sabor e convivência, fundado em 13 de agosto de 2009. Desde o início, temos o compromisso de oferecer pratos caseiros preparados com ingredientes frescos e de alta qualidade, vindos de produtores locais da região de Matinhos. Nosso ambiente é familiar e acolhedor, ideal para reunir amigos e familiares.</p>
-        <p class="small">Nossa equipe é formada por profissionais apaixonados pela gastronomia brasileira, que cuidam de cada detalhe para garantir uma experiência agradável. Valorizamos o atendimento humano, a higiene impecável e o respeito ao cliente. Buscamos sempre inovar sem perder a essência do sabor caseiro que conquistou a comunidade de Caioba.</p>
-        <p class="small">Além de refeições presenciais, oferecemos opções de delivery e retirada no local. Trabalhamos com cardápios sazonais, incluindo pratos especiais de final de semana e datas comemorativas.</p>
-        <p class="small">Nosso compromisso é com a transparência e com a satisfação dos clientes. Cada prato servido reflete nossa história, dedicação e amor pela boa comida.</p>
-        <h3 style="margin-top:16px">Dados Cadastrais</h3>
-        <pre>
-Razão Social: Restaurante do Tio LTDA
-CNPJ: 11.080.430/0001-87
-Inscrição Estadual (PR): 90497202-94
-Data de Abertura: 13/08/2009
-Porte: Microempresa
-Natureza Jurídica: Sociedade Empresária Limitada
-Capital Social: R$ 15.000,00
-Tipo: Matriz
-Situação: Ativa
-        </pre>
-      </div>
+    <section id="sobre" class="card">
+      <h2>Quem Somos</h2>
+      <p>O Restaurante do Tio é um espaço de tradição e sabor, fundado em 2009 em Matinhos/PR. Servimos refeições caseiras, preparadas com ingredientes frescos e selecionados, priorizando o sabor e o atendimento familiar. Nossa missão é oferecer uma experiência acolhedora, combinando qualidade, higiene e o melhor da culinária brasileira.</p>
     </section>
 
-    <section id="cardapio" style="margin-top:22px">
-      <div class="card">
-        <h2>Cardápio (exemplo)</h2>
-        <p class="small">(Use este espaço para inserir seu cardápio real — pratos, preços e fotos.)</p>
-        <div class="menu-list" style="margin-top:12px">
-          <div class="card"><strong>Prato do Dia</strong><div class="small">Arroz, feijão, carne, salada — R$ 22,00</div></div>
-          <div class="card"><strong>PF Especial</strong><div class="small">Frango grelhado, legumes — R$ 26,00</div></div>
-          <div class="card"><strong>Sobremesa</strong><div class="small">Pudim caseiro — R$ 8,00</div></div>
-          <div class="card"><strong>Bebidas</strong><div class="small">Refrigerante 350ml — R$ 6,00</div></div>
-        </div>
-      </div>
+    <section id="cardapio" class="card">
+      <h2>Cardápio (exemplo)</h2>
+      <p>Prato do Dia — R$ 22,00 | PF Especial — R$ 26,00 | Sobremesa — R$ 8,00 | Bebidas — R$ 6,00</p>
     </section>
 
-    <section id="avaliacoes" style="margin-top:22px">
-      <div class="card">
-        <h2>Avaliações de Clientes</h2>
-        <p class="small">Confira o que nossos clientes dizem sobre nós!</p>
-        <div class="reviews">
-          <div class="review-card">
-            <p>“Comida deliciosa e atendimento impecável! Me senti em casa. O prato do dia é sempre uma ótima escolha.”</p>
-            <div class="review-author">— Ana Paula S.</div>
-          </div>
-          <div class="review-card">
-            <p>“Melhor PF da cidade! Sempre bem servido, com tempero caseiro e preço justo. Recomendo a todos.”</p>
-            <div class="review-author">— João Mendes</div>
-          </div>
-          <div class="review-card">
-            <p>“Ambiente acolhedor e limpo. A equipe é super atenciosa. Volto toda semana!”</p>
-            <div class="review-author">— Carla Torres</div>
-          </div>
-          <div class="review-card">
-            <p>“Excelente custo-benefício. A sobremesa é irresistível e o atendimento rápido.”</p>
-            <div class="review-author">— Rafael Lima</div>
-          </div>
-        </div>
-      </div>
+    <section id="avaliacoes" class="card">
+      <h2>Avaliações</h2>
+      <p>“Comida deliciosa e atendimento impecável! Me senti em casa.” — Ana Paula</p>
+      <p>“Melhor PF da cidade! Temperinho caseiro e preço justo.” — João Mendes</p>
     </section>
 
-    <section id="privacidade" style="margin-top:22px">
-      <div class="card">
-        <h2>Política de Privacidade — Restaurante do Tio LTDA</h2>
-        <p class="small">Última atualização: 25/10/2025</p>
-        <p class="small">(texto mantido igual, conforme LGPD)</p>
-      </div>
+    <section id="privacidade" class="card">
+      <h2>Política de Privacidade</h2>
+      <p>Esta Política de Privacidade explica como o <strong>Restaurante do Tio LTDA</strong> coleta, usa e protege as informações pessoais dos visitantes e clientes deste site, em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).</p>
+
+      <h3>1. Coleta de informações</h3>
+      <p>Coletamos informações pessoais fornecidas voluntariamente, como nome, telefone e e-mail, ao preencher formulários de contato ou realizar pedidos. Também podemos coletar dados técnicos, como endereço IP e tipo de navegador, para fins estatísticos e de segurança.</p>
+
+      <h3>2. Uso das informações</h3>
+      <p>Os dados coletados são utilizados para:</p>
+      <ul>
+        <li>Atender solicitações de contato e pedidos;</li>
+        <li>Melhorar nossos serviços e experiência do usuário;</li>
+        <li>Cumprir obrigações legais e fiscais (como emissão de notas fiscais);</li>
+        <li>Enviar comunicações relacionadas aos nossos serviços, quando autorizado.</li>
+      </ul>
+
+      <h3>3. Compartilhamento de dados</h3>
+      <p>Não vendemos ou compartilhamos seus dados pessoais com terceiros, exceto quando necessário para execução de serviços, cumprimento legal ou solicitação do titular.</p>
+
+      <h3>4. Armazenamento e segurança</h3>
+      <p>Adotamos medidas técnicas e administrativas para proteger as informações contra acesso, uso ou divulgação não autorizados. No entanto, nenhum sistema é totalmente seguro, e não podemos garantir segurança absoluta.</p>
+
+      <h3>5. Direitos do titular</h3>
+      <p>Você pode solicitar a exclusão, correção ou atualização dos seus dados pessoais, conforme previsto na LGPD, entrando em contato pelo e-mail <a href="mailto:contato@restaurantedotio.com.br">contato@restaurantedotio.com.br</a>.</p>
+
+      <h3>6. Cookies</h3>
+      <p>Utilizamos cookies apenas para melhorar a navegação e análise de desempenho. Você pode desativá-los nas configurações do seu navegador, porém algumas partes do site podem não funcionar corretamente.</p>
+
+      <h3>7. Alterações nesta política</h3>
+      <p>Podemos atualizar esta Política de Privacidade periodicamente. A versão mais recente estará sempre disponível nesta página.</p>
+
+      <p>Última atualização: 25/10/2025</p>
     </section>
 
-    <section id="contato" style="margin-top:22px">
-      <div class="card">
-        <h2>Contato</h2>
-        <pre class="small">
-Rua Uniflor, 1456
-Bairro Caioba — Matinhos — PR
-CEP: 83260-000
-CNPJ: 11.080.430/0001-87
-E-mail: contato@restaurantedotio.com.br
-Telefone: (41) 3456-7890
-        </pre>
-      </div>
+    <section id="contato" class="card">
+      <h2>Contato</h2>
+      <p><strong>Restaurante do Tio LTDA</strong><br>Rua Uniflor, 1456 — Caioba, Matinhos — PR<br>CEP: 83260-000<br>CNPJ: 11.080.430/0001-87<br>E-mail: contato@restaurantedotio.com.br<br>Telefone: (41) 3456-7890</p>
     </section>
 
-    <footer>
-      <div class="container small">
-        © Restaurante do Tio LTDA — CNPJ 11.080.430/0001-87 • Rua Uniflor, 1456 — Matinhos/PR
-      </div>
+    <footer class="small">
+      © Restaurante do Tio LTDA — CNPJ 11.080.430/0001-87 — Todos os direitos reservados.
     </footer>
   </main>
-
-  <script>
-    document.addEventListener('click',function(e){
-      if(e.target.tagName==='A'&&e.target.getAttribute('href')&&e.target.getAttribute('href').startsWith('#')){
-        e.preventDefault();
-        const id=e.target.getAttribute('href').substring(1);
-        const el=document.getElementById(id);
-        if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    });
-  </script>
 </body>
 </html>
